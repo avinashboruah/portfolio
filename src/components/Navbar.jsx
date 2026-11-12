@@ -30,7 +30,7 @@ function Navbar() {
             }
 
           </div>
-          <a href='https://github.com/avinash55o' target='_blank'><div className='cursor-pointer'> <FaGithub size={20} /></div> </a>
+          <a href='https://github.com/avinashboruah' target='_blank'><div className='cursor-pointer'> <FaGithub size={20} /></div> </a>
           <a href='https://x.com/avinash_boruah' target='_blank'><div className='cursor-pointer' > <FaXTwitter size={20} /></div></a>
         </div>
 

@@ -1,6 +1,6 @@
 function ProjectCardSkeleton() {
   return (
-    <div className='w-[300px] min-h-[280px] border border-[#BFACB5] dark:border-[#BFACB5]/40 p-4 flex flex-col rounded-sm animate-pulse'>
+    <div className='w-[300px] min-h-[280px] shrink-0 border border-[#BFACB5] dark:border-[#BFACB5]/40 p-4 flex flex-col rounded-sm animate-pulse'>
 
       {/* Project name skeleton */}
       <div className='h-4 bg-[#7F7B82] dark:bg-[#E5D0CC] rounded w-3/4 mb-2'></div>

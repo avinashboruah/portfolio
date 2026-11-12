@@ -5,7 +5,6 @@ import { fetchAllProjects } from '../utils/fetchGitHubprojects'
 import { useState, useEffect } from 'react'
 
 function Projects() {
-  const [visible, setVisible] = useState(3)
   const [projects, setProjects] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -28,14 +27,6 @@ function Projects() {
     loadProjects()
   }, [])
 
-  const showMore = () => {
-    setVisible(visible + 3)
-  }
-
-  const showLess = () => {
-    setVisible(visible - 3)
-  }
-
   // Loading state
   if (loading) {
     return (
@@ -43,10 +34,14 @@ function Projects() {
         <div className='mx-auto'>
           <h1 className='font-press text-[#172121] dark:text-[#E5D0CC]'>PROJECTS</h1>
         </div>
-        <div className='py-3 grid grid-col-1 md:grid-cols-3 mx-auto gap-4'>
-          <ProjectCardSkeleton />
-          <ProjectCardSkeleton />
-          <ProjectCardSkeleton /></div>
+        <div className='w-full max-w-5xl mx-auto px-4'>
+          <div className='flex gap-4 overflow-x-auto py-4 px-2 horizontal-scroll'>
+            <ProjectCardSkeleton />
+            <ProjectCardSkeleton />
+            <ProjectCardSkeleton />
+            <ProjectCardSkeleton />
+          </div>
+        </div>
       </div>
     )
   }
@@ -70,28 +65,20 @@ function Projects() {
       <div className='mx-auto'>
         <h1 className='font-press text-[#172121] dark:text-[#E5D0CC]'>PROJECTS</h1>
       </div>
-      <div className='py-3 grid grid-cols-1 md:grid-cols-3 mx-auto gap-4'>
-        {projects.slice(0, visible).map((project) => (
-          <ProjectCard
-            key={project.id}
-            projectName={project.projectName}
-            description={project.description}
-            link={project.link}
-            github={project.github}
-            tech={project.tech}
-          />
-        ))}
+      <div className='w-full max-w-5xl mx-auto px-4'>
+        <div className='flex gap-4 overflow-x-auto py-4 px-2 horizontal-scroll scroll-smooth'>
+          {projects.map((project) => (
+            <ProjectCard
+              key={project.id}
+              projectName={project.projectName}
+              description={project.description}
+              link={project.link}
+              github={project.github}
+              tech={project.tech}
+            />
+          ))}
+        </div>
       </div>
-      {
-        visible < projects.length && (
-          <div onClick={showMore} className='mx-auto dark:text-[#E5D0CC] text-xs border border-[#BFACB5] dark:border-[#BFACB5]/40 px-1 py-2 rounded-sm hover:scale-105 transition duration-300 ease-in-out cursor-pointer'>Load more</div>
-        )
-      }
-      {
-        visible > 3 && (
-          <div onClick={showLess} className='mx-auto dark:text-[#E5D0CC] text-xs border border-[#BFACB5] dark:border-[#BFACB5]/40 px-1 py-2 rounded-sm hover:scale-105 transition duration-300 ease-in-out cursor-pointer'>Show less</div>
-        )
-      }
     </div>
   )
 }

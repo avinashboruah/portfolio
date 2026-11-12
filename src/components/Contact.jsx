@@ -20,7 +20,7 @@ function Contact() {
         {
             name: 'GitHub',
             icon: FaGithub,
-            url: 'https://github.com/Avinash55o',
+            url: 'https://github.com/avinashboruah',
             color: 'hover:text-[#7F7B82] dark:hover:text-[#BFACB5]'
         },
         {
