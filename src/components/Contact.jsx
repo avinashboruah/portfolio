@@ -47,7 +47,7 @@ function Contact() {
         <div className='w-full flex flex-col gap-y-6 my-8'>
             {/* Header */}
             <div className='mx-auto'>
-                <h1 className='font-press text-[#172121] dark:text-[#E5D0CC]'>GET IN TOUCH</h1>
+                <h1 className='font-press text-[#BE185D] dark:text-[#F472B6]'>GET IN TOUCH</h1>
             </div>
 
             {/* Main Content */}

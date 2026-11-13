@@ -32,7 +32,7 @@ function Projects() {
     return (
       <div className='w-full flex flex-col gap-y-4'>
         <div className='mx-auto'>
-          <h1 className='font-press text-[#172121] dark:text-[#E5D0CC]'>PROJECTS</h1>
+          <h1 className='font-press text-[#0F766E] dark:text-[#2DD4BF]'>PROJECTS</h1>
         </div>
         <div className='w-full max-w-5xl mx-auto px-4'>
           <div className='flex gap-4 overflow-x-auto py-4 px-2 horizontal-scroll'>
@@ -51,7 +51,7 @@ function Projects() {
     return (
       <div className='w-full flex flex-col gap-y-4'>
         <div className='mx-auto'>
-          <h1 className='font-press text-[#172121] dark:text-[#E5D0CC]'>PROJECTS</h1>
+          <h1 className='font-press text-[#0F766E] dark:text-[#2DD4BF]'>PROJECTS</h1>
         </div>
         <div className='mx-auto text-[#7F7B82] dark:text-[#BFACB5]'>
           Error loading projects: {error}
@@ -63,7 +63,7 @@ function Projects() {
   return (
     <div className='w-full flex flex-col gap-y-4'>
       <div className='mx-auto'>
-        <h1 className='font-press text-[#172121] dark:text-[#E5D0CC]'>PROJECTS</h1>
+        <h1 className='font-press text-[#0F766E] dark:text-[#2DD4BF]'>PROJECTS</h1>
       </div>
       <div className='w-full max-w-5xl mx-auto px-4'>
         <div className='flex gap-4 overflow-x-auto py-4 px-2 horizontal-scroll scroll-smooth'>
