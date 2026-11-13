@@ -26,10 +26,10 @@ function VantaBackground() {
                 scaleMobile: 1.00,
                 color: isDark === 'dark' ? 0xBFACB5 : 0x7F7B82,  // Lilac Ash (dark) / Rosy Granite (light)
                 backgroundColor: isDark === 'dark' ? 0x172121 : 0xE5D0CC,  // Carbon Black (dark) / Almond Silk (light)
-                points: 20.00,
+                points: 8.00,
                 maxDistance: 0.00,
                 vertexColors: false,
-                spacing: 15.00
+                spacing: 19.00
             })
         }
 
