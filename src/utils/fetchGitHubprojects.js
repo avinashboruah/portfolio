@@ -1,12 +1,17 @@
-import { GitHUB_UserName } from "../data/ProjectData";
+import { GitHUB_UserName, ProjectDescriptions } from "../data/ProjectData";
 
 const GITHUB_USERNAME = GitHUB_UserName || "avinashboruah";
 
-const CACHE_KEY_PREFIX = "gh_project_";
-const CACHE_TTL_MS = 1000 * 60 * 60 * 12; // 12 hours cache
+const CACHE_KEY_PREFIX = "gh_project_v2_"; // v2 clears the old 12-hour stale cache
+const CACHE_TTL_MS = 1000 * 60 * 10; // 10 minutes cache instead of 12 hours
 
 export async function fetchGitHubProject(repoName) {
   const cacheKey = `${CACHE_KEY_PREFIX}${GITHUB_USERNAME}_${repoName.toLowerCase()}`;
+
+  // Check if a local override exists in ProjectData.js
+  const customDesc =
+    ProjectDescriptions?.[repoName] ||
+    ProjectDescriptions?.[repoName.toLowerCase()];
 
   // 1. Check local storage cache first
   let cachedData = null;
@@ -16,8 +21,11 @@ export async function fetchGitHubProject(repoName) {
       if (cachedItem) {
         const parsed = JSON.parse(cachedItem);
         cachedData = parsed.data;
-        // If cache is fresh, return it immediately (saves API calls & avoids rate limits)
+        // If cache is fresh, return it immediately (with local description override if present)
         if (Date.now() - parsed.timestamp < CACHE_TTL_MS) {
+          if (customDesc) {
+            return { ...cachedData, description: customDesc };
+          }
           return cachedData;
         }
       }
@@ -37,7 +45,7 @@ export async function fetchGitHubProject(repoName) {
       const project = {
         id: data.id,
         projectName: data.name,
-        description: data.description || "No description available",
+        description: customDesc || data.description || "No description available",
         tech: data.topics || [], // GitHub topics as tech stack
         link: data.homepage || `/not-available`,
         github: data.html_url,
@@ -70,6 +78,9 @@ export async function fetchGitHubProject(repoName) {
 
   // 3. If API failed (e.g. 403 rate-limited, offline), fallback to cached data if available
   if (cachedData) {
+    if (customDesc) {
+      return { ...cachedData, description: customDesc };
+    }
     return cachedData;
   }
 
@@ -77,7 +88,7 @@ export async function fetchGitHubProject(repoName) {
   return {
     id: repoName,
     projectName: repoName,
-    description: "View repository on GitHub.",
+    description: customDesc || "View repository on GitHub.",
     tech: [],
     link: `/not-available`,
     github: `https://github.com/${GITHUB_USERNAME}/${repoName}`,
