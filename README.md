@@ -8,37 +8,12 @@ A personal developer portfolio built with React and Tailwind CSS, featuring an i
 
 ---
 
-## ✨ Features
-
-- **Interactive 3D Background**: Dynamic net mesh built with Vanta.js and Three.js.
-- **Dual Resume Switcher**: Quick toggle between Full-Stack and AI Engineer resumes.
-- **Dynamic Projects**: Auto-fetched from GitHub API with caching and smooth sideways scrolling.
-- **Certificates**: Highlighted achievements with skeleton loading animations.
-- **Theme Support**: Seamless dark and light mode toggle.
-
----
-
 ## 🛠️ Tech Stack
 
 - **Frontend**: React 19, Tailwind CSS v4, React Router
 - **3D Graphics**: Three.js, Vanta.js
 - **Build Tool**: Vite 7
 - **Icons**: React Icons
-
----
-
-## 🚀 Quick Start
-
-```bash
-# Clone the repo
-git clone https://github.com/avinashboruah/portfolio.git
-
-# Install dependencies
-npm install
-
-# Run dev server
-npm run dev
-```
 
 ---
 
