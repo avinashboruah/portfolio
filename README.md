@@ -22,3 +22,4 @@ A personal developer portfolio built with React and Tailwind CSS, featuring an i
 - **GitHub**: [@avinashboruah](https://github.com/avinashboruah)
 - **LinkedIn**: [Avinash Boruah](https://www.linkedin.com/in/avinash-boruah-7a4380250/)
 - **Email**: [avinashboruah01@gmail.com](mailto:avinashboruah01@gmail.com)
+- **Portfolio**: [protfolio](avinashboruah.netlify.app/)
