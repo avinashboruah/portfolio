@@ -24,7 +24,7 @@ function Certificates() {
     return (
       <div className='w-full flex flex-col gap-y-4 my-6'>
         <div className='mx-auto'>
-          <h1 className='font-press text-[#B45309] dark:text-[#FBBF24]'>Certificates and Courses</h1>
+          <h1 className='font-press text-[#0F766E] dark:text-[#2DD4BF]'>Certificates and Courses</h1>
         </div>
         <div className='w-full max-w-5xl mx-auto px-4'>
           <div className='flex gap-4 overflow-x-auto py-4 px-2 horizontal-scroll'>
@@ -41,7 +41,7 @@ function Certificates() {
   return (
     <div className='w-full flex flex-col gap-y-4 my-6'>
       <div className='mx-auto'>
-        <h1 className='font-press text-[#B45309] dark:text-[#FBBF24]'>Certificates and Courses</h1>
+        <h1 className='font-press text-[#0F766E] dark:text-[#2DD4BF]'>Certificates and Courses</h1>
       </div>
       <div className='w-full max-w-5xl mx-auto px-4'>
         <div className='flex gap-4 overflow-x-auto py-4 px-2 horizontal-scroll scroll-smooth'>

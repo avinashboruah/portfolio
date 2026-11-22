@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { FaFileDownload, FaEye } from "react-icons/fa"
+import { useSound } from '../context/SoundContext'
 
 const resumes = {
     fullstack: {
@@ -19,12 +20,22 @@ const resumes = {
 function Greetings() {
     const [selectedResume, setSelectedResume] = useState('fullstack')
     const currentResume = resumes[selectedResume]
+    const { playSFX } = useSound()
+
+    const handleSelectResume = (key) => {
+        if (key !== selectedResume) {
+            setSelectedResume(key)
+            playSFX('select')
+        }
+    }
 
     const handleViewResume = (path) => {
+        playSFX('open')
         window.open(encodeURI(path), '_blank')
     }
 
     const handleDownloadResume = (path, filename) => {
+        playSFX('complete')
         const link = document.createElement('a')
         link.href = encodeURI(path)
         link.download = filename
@@ -50,7 +61,7 @@ function Greetings() {
                 <div className='inline-flex p-1 rounded-full bg-[#BFACB5]/20 dark:bg-[#444554]/50 border border-[#BFACB5]/40'>
                     <button
                         type='button'
-                        onClick={() => setSelectedResume('fullstack')}
+                        onClick={() => handleSelectResume('fullstack')}
                         className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer ${
                             selectedResume === 'fullstack'
                                 ? 'bg-[#BFACB5] text-[#172121] shadow-sm'
@@ -61,7 +72,7 @@ function Greetings() {
                     </button>
                     <button
                         type='button'
-                        onClick={() => setSelectedResume('ai')}
+                        onClick={() => handleSelectResume('ai')}
                         className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer ${
                             selectedResume === 'ai'
                                 ? 'bg-[#BFACB5] text-[#172121] shadow-sm'

@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { useSound } from '../context/SoundContext';
 
 function CertificatesCard({ Title, Image, description, link }) {
   const [imageLoaded, setImageLoaded] = useState(false);
+  const { playSFX } = useSound();
 
   return (
     <div className='w-[300px] min-h-[250px] shrink-0 border border-[#BFACB5] dark:border-[#BFACB5]/40 dark:text-[#E5D0CC] p-4 flex flex-col rounded-sm hover:scale-102 transition-transform duration-300'>
@@ -25,7 +27,7 @@ function CertificatesCard({ Title, Image, description, link }) {
       </p>
 
       <div className='flex justify-between items-center text-[#7F7B82] dark:text-[#BFACB5] mt-auto gap-x-4'>
-        <a href={link} target="_blank" rel="noopener noreferrer">
+        <a href={link} target="_blank" rel="noopener noreferrer" onClick={() => playSFX('open')}>
           <button className='underline cursor-pointer text-[#7F7B82] dark:text-[#E5D0CC]/80 hover:text-[#BFACB5] dark:hover:text-[#BFACB5]'>
             Live
           </button>

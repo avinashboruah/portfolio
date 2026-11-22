@@ -64,7 +64,7 @@ export async function fetchGitHubProject(repoName) {
             })
           );
         }
-      } catch (e) {
+      } catch {
         // storage quota exceeded or disabled
       }
 

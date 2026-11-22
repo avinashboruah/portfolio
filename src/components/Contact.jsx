@@ -1,13 +1,17 @@
 import { useState } from 'react'
 import { FaGithub, FaLinkedin, FaEnvelope, FaTwitter } from 'react-icons/fa'
 import { MdContentCopy } from 'react-icons/md'
+import { useSound } from '../context/SoundContext'
 
 function Contact() {
     const [emailCopyMessage, setEmailCopyMessage] = useState(false)
+    const { playSFX } = useSound()
 
     const handleEmailCopy = async () => {
         try {
+            playSFX('copy')
             await navigator.clipboard.writeText("avinashboruah01@gmail.com")
+            playSFX('success')
             setEmailCopyMessage(true)
             setTimeout(() => setEmailCopyMessage(false), 2000)
         } catch (error) {
@@ -47,7 +51,7 @@ function Contact() {
         <div className='w-full flex flex-col gap-y-6 my-8'>
             {/* Header */}
             <div className='mx-auto'>
-                <h1 className='font-press text-[#BE185D] dark:text-[#F472B6]'>GET IN TOUCH</h1>
+                <h1 className='font-press text-[#0F766E] dark:text-[#2DD4BF]'>GET IN TOUCH</h1>
             </div>
 
             {/* Main Content */}
@@ -96,6 +100,7 @@ function Contact() {
                                     href={social.url}
                                     target='_blank'
                                     rel='noopener noreferrer'
+                                    onClick={() => playSFX('open')}
                                     className={`text-[#172121]/80 dark:text-[#E5D0CC]/80 ${social.color} transition-all duration-300 hover:scale-110`}
                                     title={social.name}
                                 >
